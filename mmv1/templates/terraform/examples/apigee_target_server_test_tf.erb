@@ -54,17 +54,17 @@ resource "google_apigee_organization" "apigee_org" {
   ]
 }
 
-resource "google_apigee_environment" "<%= ctx[:primary_resource_id] %>" {
+resource "google_apigee_environment" "apigee_environment" {
   org_id       = google_apigee_organization.apigee_org.id
   name         = "tf-test%{random_suffix}"
   description  = "Apigee Environment"
   display_name = "environment-1"
 }
 
-resource "google_apigee_target_server" "apigee_target_server" {
+resource "google_apigee_target_server" "<%= ctx[:primary_resource_id] %>" {
   name        = "tf-test-target-server%{random_suffix}"
   description = "Apigee Target Server"
   host        = "abc.foo.com"
   port        = 8080
-  env_id      = google_apigee_environment.<%= ctx[:primary_resource_id] %>.id
+  env_id      = google_apigee_environment.apigee_environment.id
 }
