@@ -13,7 +13,7 @@
 
 --- !ruby/object:Api::Resource
 # API resource name
-name: 'Target Server'
+name: 'TargetServer'
 base_url: '{{env_id}}/targetservers'
 create_url: '{{env_id}}/targetservers'
 delete_url: '{{env_id}}/targetservers/{{name}}'
