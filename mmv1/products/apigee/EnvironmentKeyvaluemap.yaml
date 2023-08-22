@@ -27,13 +27,14 @@ self_link: '{{env_id}}/keyvaluemaps/{{name}}'
 import_format: ['{{env_id}}/keyvaluemaps/{{name}}', '{{env_id}}/{{name}}']
 skip_sweeper: true
 async: !ruby/object:Api::OpAsync
+  actions: ['create', 'delete']
   operation: !ruby/object:Api::OpAsync::Operation
     path: 'name'
     base_url: '{{op_id}}'
     wait_ms: 1000
   result: !ruby/object:Api::OpAsync::Result
     path: 'response'
-    resource_inside_response: true
+    resource_inside_response: false
   status: !ruby/object:Api::OpAsync::Status
     path: 'done'
     complete: true
