@@ -12,7 +12,7 @@
 # limitations under the License.
 
 --- !ruby/object:Api::Resource
-name: 'EnvKeyValueMap'
+name: 'Envkeyvaluemaps'
 description: |
   Collection of key/value string pairs.  
 references: !ruby/object:Api::Resource::ReferenceLinks
@@ -30,8 +30,8 @@ examples:
   # This is a more verbose version of the above that creates all
   # the resources needed for the acceptance test.
   - !ruby/object:Provider::Terraform::Examples
-    name: 'apigee_environment_keyvaluemap_test'
-    primary_resource_id: 'apigee_environment_keyvaluemap'
+    name: 'apigee_environment_keyvaluemaps_test'
+    primary_resource_id: 'apigee_environment_keyvaluemaps'
     test_env_vars:
       org_id: :ORG_ID
       billing_account: :BILLING_ACCT
@@ -59,7 +59,7 @@ parameters:
   #     The name of the newly created key value map.
   #   immutable: true
 custom_code: !ruby/object:Provider::Terraform::CustomCode
-  custom_import: templates/terraform/custom_import/apigee_environment_reference.go.erb
+  custom_import: templates/terraform/custom_import/apigee_environment_keyvaluemaps.go.erb
 properties:
   - !ruby/object:Api::Type::String
       name: 'name'
