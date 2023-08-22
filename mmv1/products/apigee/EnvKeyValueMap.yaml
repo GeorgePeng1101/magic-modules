@@ -12,7 +12,7 @@
 # limitations under the License.
 
 --- !ruby/object:Api::Resource
-name: 'Envkeyvaluemaps'
+name: 'EnvKeyvaluemaps'
 description: |
   Collection of key/value string pairs.  
 references: !ruby/object:Api::Resource::ReferenceLinks
