@@ -63,12 +63,12 @@ resource "google_apigee_environment" "create_apigee_environment" {
 
 resource "google_apigee_environment_keyvaluemaps" "<%= ctx[:primary_resource_id] %>" {
   name      = "tf-test-env-kvm%{random_suffix}"
-  encrypted = false
+  encrypted = true
   env_id    = google_apigee_environment.create_apigee_environment.id
 }
 
 resource "google_apigee_environment_keyvaluemaps_entries" "create_env_kvm_entries" {
-  name      = google_apigee_environment_keyvaluemaps.<%= ctx[:primary_resource_id] %>.name
+  keyvaluemap_id    = google_apigee_environment_keyvaluemaps.<%= ctx[:primary_resource_id] %>.id
+  name      = "testName"
   value     = "testValue"
-  env_id    = google_apigee_environment.create_apigee_environment.id
 }
