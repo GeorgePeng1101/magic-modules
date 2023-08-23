@@ -49,15 +49,10 @@ parameters:
     name: 'keyvaluemap_id'
     description: |
       The Apigee environment group associated with the Apigee environment,
-      in the format `organizations/{{org_name}}/environments/{{env_name}}/keyvaluemaps/{{keyvaluemaps_name}}`.
+      in the format `organizations/{{org_name}}/environments/{{env_name}}/keyvaluemaps/{{keyvaluemap_name}}`.
     required: true
     immutable: true
     url_param_only: true
-  # - !ruby/object:Api::Type::String
-  #   name: 'name'
-  #   description: |
-  #     The name of the newly created key value map.
-  #   immutable: true
 custom_code: !ruby/object:Provider::Terraform::CustomCode
   custom_import: templates/terraform/custom_import/apigee_environment_keyvaluemaps_entries.go.erb
 properties:
