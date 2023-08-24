@@ -169,7 +169,8 @@ properties:
 
   - !ruby/object:Api::Type::Enum
     name: 'protocol'
-    immutable: true    
+    immutable: true
+    required: true   
     description: |
       Immutable. The protocol used by this TargetServer.
     values:
