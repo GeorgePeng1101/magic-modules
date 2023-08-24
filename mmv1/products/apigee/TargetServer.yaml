@@ -117,6 +117,8 @@ properties:
          Required. Enables TLS. If false, neither one-way nor two-way TLS will be enabled.
       #  immutable: true
        required: true
+       default_value: true
+       default_from_api: false
      - !ruby/object:Api::Type::Boolean
        name: 'clientAuthEnabled'
        description: |
