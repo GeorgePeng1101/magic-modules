@@ -108,7 +108,7 @@ properties:
       Optional. Enabling/disabling a TargetServer is useful when TargetServers are used in load balancing configurations, and one or more TargetServers need to taken out of rotation periodically. Defaults to true.
     # immutable: true
   - !ruby/object:Api::Type::NestedObject
-    name: 'sSLInfo'
+    name: 'sslInfo'
     description: Optional. Specifies TLS configuration info for this TargetServer. The JSON name is sSLInfo for legacy/backwards compatibility reasons -- Edge originally supported SSL, and the name is still used for TLS configuration.
     properties:
      - !ruby/object:Api::Type::Boolean
