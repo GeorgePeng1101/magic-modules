@@ -42,7 +42,7 @@ examples:
 timeouts: !ruby/object:Api::Timeouts
   insert_minutes: 1 
   delete_minutes: 1 
-
+immutable: true
 autogen_async: true
 parameters:
   - !ruby/object:Api::Type::String
