@@ -1,3 +1,4 @@
+config := meta.(*transport_tpg.Config)
 name, err := tpgresource.ReplaceVars(d, config, "{{name}}")
 if err != nil {
 	return nil, err
