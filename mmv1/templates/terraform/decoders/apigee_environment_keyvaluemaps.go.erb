@@ -5,4 +5,10 @@ if err != nil {
 }
 res["name"] = name
 res["encrypted"] = true
+
+id, err := tpgresource.ReplaceVars(d, config, "{{ApigeeBasePath}}{{env_id}}/keyvaluemaps/{{name}}")
+if err != nil {
+	return err
+}
+d.SetId(id)
 return res, nil
