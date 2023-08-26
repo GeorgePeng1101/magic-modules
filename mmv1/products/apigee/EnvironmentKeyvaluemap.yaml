@@ -23,7 +23,7 @@ references: !ruby/object:Api::Resource::ReferenceLinks
 base_url: '{{env_id}}/keyvaluemaps'
 create_url: '{{env_id}}/keyvaluemaps'
 delete_url: '{{env_id}}/keyvaluemaps/{{name}}'
-self_link: '{{env_id}}/keyvaluemaps/{{name}}/entries'
+self_link: '{{env_id}}/keyvaluemaps/{{name}}'
 import_format: ['{{env_id}}/keyvaluemaps/{{name}}', '{{env_id}}/{{name}}']
 skip_sweeper: true
 examples:
