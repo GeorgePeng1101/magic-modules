@@ -1,14 +1,14 @@
-config := meta.(*transport_tpg.Config)
-name, err := tpgresource.ReplaceVars(d, config, "{{name}}")
-if err != nil {
-	return nil, err
-}
-res["name"] = name
-res["encrypted"] = true
+# config := meta.(*transport_tpg.Config)
+# name, err := tpgresource.ReplaceVars(d, config, "{{name}}")
+# if err != nil {
+# 	return nil, err
+# }
+res["name"] = "name123"
+res["encrypted"] = "gewre"
 
-id, err := tpgresource.ReplaceVars(d, config, "{{ApigeeBasePath}}{{env_id}}/keyvaluemaps/{{name}}")
-if err != nil {
-	return err
-}
-d.SetId(id)
+# id, err := tpgresource.ReplaceVars(d, config, "{{ApigeeBasePath}}{{env_id}}/keyvaluemaps/{{name}}")
+# if err != nil {
+# 	return err
+# }
+# d.SetId(id)
 return res, nil
