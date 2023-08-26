@@ -1,3 +1,7 @@
-res["name"] = tpgresource.GetResourceNameFromSelfLink(res["name"].(string))
+name, err := tpgresource.ReplaceVars(d, config, "{{name}}")
+if err != nil {
+	return nil, err
+}
+res["name"] = name
 res["encrypted"] = true
 return res, nil
