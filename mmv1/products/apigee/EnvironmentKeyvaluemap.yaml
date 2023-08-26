@@ -52,7 +52,7 @@ parameters:
     url_param_only: true
 custom_code: !ruby/object:Provider::Terraform::CustomCode
   custom_import: templates/terraform/custom_import/apigee_environment_keyvaluemaps.go.erb
-  # decoder: templates/terraform/decoders/apigee_environment_keyvaluemaps.go.erb
+  decoder: templates/terraform/decoders/apigee_environment_keyvaluemaps.go.erb
 properties:
   - !ruby/object:Api::Type::String
       name: 'name'
