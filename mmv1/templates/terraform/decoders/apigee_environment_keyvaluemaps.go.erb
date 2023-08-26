@@ -1,6 +1,9 @@
-
-res["name"] = "name123"
+config := meta.(*transport_tpg.Config)
+name, err := tpgresource.ReplaceVars(d, config, "{{name}}")
+if err != nil {
+    return nil, err
+}
+res["name"] = name
 res["encrypted"] = true
-log.Printf("[DEBUG] Change EnvironmentKeyvaluemaps %q: %#v", d.Id(), res)
 
 return res, nil
