@@ -119,7 +119,8 @@ in the format 'organizations/{{org_name}}'.`,
 			},
 			"name": {
 				Type:        schema.TypeString,
-				Computed:    true,
+				Required:    true,
+				ForceNew:    true,
 				Description: `Output only. Name of the API proxy.`,
 			},
 			"revision": {
