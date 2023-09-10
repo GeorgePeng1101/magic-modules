@@ -89,7 +89,6 @@ properties:
         name: 'createdAt'
         description: |
           Time at which the API proxy was created, in milliseconds since epoch.
-        required: true
       - !ruby/object:Api::Type::String
         name: 'lastModifiedAt'
         description: |
@@ -102,7 +101,6 @@ properties:
     name: 'name'
     description: |
       Output only. Name of the API proxy.
-    immutable: true
     output: true    
   - !ruby/object:Api::Type::String
     name: 'revision'
