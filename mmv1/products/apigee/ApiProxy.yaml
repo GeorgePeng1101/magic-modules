@@ -105,7 +105,7 @@ properties:
     immutable: true
     output: true    
   - !ruby/object:Api::Type::String
-    name: 'revision[]'
+    name: 'revision'
     description: |
       Output only. List of revisions defined for the API proxy.
     output: true      
