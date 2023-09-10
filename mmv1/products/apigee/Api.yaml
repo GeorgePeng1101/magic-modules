@@ -18,6 +18,23 @@ create_url: '{{org_id}}/apis'
 delete_url: '{{org_id}}/apis/{{name}}'
 self_link: '{{org_id}}/apis/{{name}}'
 update_url: '{{org_id}}/apis/{{name}}'
+async: !ruby/object:Api::OpAsync
+  operation: !ruby/object:Api::OpAsync::Operation
+    path: 'name'
+    base_url: '{{op_id}}'
+    wait_ms: 1000
+  result: !ruby/object:Api::OpAsync::Result
+    path: 'response'
+    resource_inside_response: true
+  status: !ruby/object:Api::OpAsync::Status
+    path: 'done'
+    complete: true
+    allowed:
+      - true
+      - false
+  error: !ruby/object:Api::OpAsync::Error
+    path: 'error'
+    message: 'message'
 description: |
   An `API proxy` in Apigee.
 references: !ruby/object:Api::Resource::ReferenceLinks
