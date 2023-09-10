@@ -86,7 +86,6 @@ properties:
     description: |
       Output only. Name of the API proxy.
     immutable: true
-    required: true
     output: true    
   - !ruby/object:Api::Type::String
     name: 'revision[]'
@@ -97,7 +96,6 @@ properties:
     name: 'latestRevisionId'
     description: |
       Output only. The id of the most recently created revision for this api proxy.
-    required: true
     output: true    
   - !ruby/object:Api::Type::KeyValuePairs
     name: 'labels'
