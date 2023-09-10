@@ -12,7 +12,7 @@
 # limitations under the License.
 
 --- !ruby/object:Api::Resource
-name: 'Api'
+name: 'ApiProxy'
 base_url: '{{org_id}}/apis'
 create_url: '{{org_id}}/apis'
 delete_url: '{{org_id}}/apis/{{name}}'
