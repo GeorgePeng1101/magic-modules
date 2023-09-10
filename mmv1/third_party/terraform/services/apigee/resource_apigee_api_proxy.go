@@ -201,7 +201,7 @@ func resourceApigeeApiProxyCreate(d *schema.ResourceData, meta interface{}) erro
 	}
 
 	log.Printf("[DEBUG] resourceApigeeApiProxyCreate, url=, 	%s", url)
-	res, err := sendRequestRawBodyWithTimeout(config, "POST", billingProject, url, userAgent, file, "application/octet-stream", d.Timeout(schema.TimeoutCreate))
+	res, err := sendRequestRawBodyWithTimeout2(config, "POST", billingProject, url, userAgent, file, "application/octet-stream", d.Timeout(schema.TimeoutCreate))
 
 	log.Printf("[DEBUG] sendRequestRawBodyWithTimeout Done")
 	if err != nil {
@@ -415,7 +415,7 @@ func expandApigeeApiProxyReadOnly(v interface{}, d tpgresource.TerraformResource
 }
 
 // sendRequestRawBodyWithTimeout is derived from sendRequestWithTimeout with direct pass through of request body
-func sendRequestRawBodyWithTimeout(config *transport_tpg.Config, method, project, rawurl, userAgent string, body io.Reader, contentType string, timeout time.Duration, errorRetryPredicates ...transport_tpg.RetryErrorPredicateFunc) (map[string]interface{}, error) {
+func sendRequestRawBodyWithTimeout2(config *transport_tpg.Config, method, project, rawurl, userAgent string, body io.Reader, contentType string, timeout time.Duration, errorRetryPredicates ...transport_tpg.RetryErrorPredicateFunc) (map[string]interface{}, error) {
 	log.Printf("[DEBUG] sendRequestRawBodyWithTimeout start")
 	reqHeaders := make(http.Header)
 	reqHeaders.Set("User-Agent", userAgent)
