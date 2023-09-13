@@ -69,8 +69,8 @@ timeouts: !ruby/object:Api::Timeouts
 
 custom_code: !ruby/object:Provider::Terraform::CustomCode
   custom_import: templates/terraform/custom_import/apigee_api_proxy_deployment.go.erb
-  custom_create: templates/terraform/custom_create/apigee_api_proxy_deployment_create.go.erb
-  custom_update: templates/terraform/custom_update/apigee_api_proxy_deployment_update.go.erb
+  custom_create: templates/terraform/custom_create/apigee_api_proxy_deployment_create.go
+  custom_update: templates/terraform/custom_update/apigee_api_proxy_deployment_update.go
 autogen_async: true
 parameters:
   - !ruby/object:Api::Type::String
