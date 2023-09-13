@@ -1,0 +1,18 @@
+config := meta.(*transport_tpg.Config)
+
+// current import_formats cannot import fields with forward slashes in their value
+if err := tpgresource.ParseImportId([]string{
+        "organizations/(?P<org_id>[^/]+)/environments/(?P<environment>[^/]+)/apis/(?P<proxy_name>[^/]+)/revisions/(?P<revision_id>[^/]+/deployments)",
+        "(?P<org_id>[^/]+)/(?P<environment>[^/]+)/(?P<proxy_name>[^/]+)/(?P<revision_id>[^/]+)",
+    }, d, config); err != nil {
+        return nil, err
+    }
+
+// Replace import id for the resource id
+id, err := tpgresource.ReplaceVars(d, config, "organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_name}}/revisions/{{revision_id}}")
+if err != nil {
+    return nil, fmt.Errorf("Error constructing id: %s", err)
+}
+d.SetId(id)
+
+return []*schema.ResourceData{d}, nil
