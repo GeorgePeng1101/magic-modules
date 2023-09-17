@@ -14,10 +14,10 @@
 --- !ruby/object:Api::Resource
 name: 'ApiProxyDeployment'
 base_url: 'organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_name}}/revisions/{{revision_id}}/deployments'
-create_url: 'organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_name}}/revisions/{{revision_id}}/deployments'
+create_url: 'organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_name}}/revisions/{{revision_id}}/deployments?override=true&serviceAccount={{service_account}}"'
 delete_url: 'organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_name}}/revisions/{{revision_id}}/deployments'
 self_link: 'organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_name}}/revisions/{{revision_id}}/deployments'
-update_url: 'organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_name}}/revisions/{{revision_id}}/deployments'
+update_url: 'organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_name}}/revisions/{{revision_id}}/deployments?override=true&serviceAccount={{service_account}}"'
 description: |
   TargetServer configuration. TargetServers are used to decouple a proxy TargetEndpoint HTTPTargetConnections from concrete URLs for backend services.
 references: !ruby/object:Api::Resource::ReferenceLinks
@@ -104,20 +104,25 @@ parameters:
       in the format `organizations/{{org_name}}/environments/{{env_name}}`.
     required: true
     immutable: true
-    url_param_only: true            
-properties:
+    url_param_only: true  
   - !ruby/object:Api::Type::Boolean
     name: 'override'
     description: |
       Flag that specifies whether the new deployment replaces other deployed revisions of the API proxy in the environment.
+    default_value: false
+    url_param_only: true  
   - !ruby/object:Api::Type::Boolean
     name: 'sequencedRollout'
     description: |
       Flag that specifies whether to enable sequenced rollout.
+    url_param_only: true
   - !ruby/object:Api::Type::String
     name: 'serviceAccount'
     description: |
-      Google Cloud IAM service account.
+      Google Cloud IAM service account.              
+    url_param_only: true
+properties:
+
 
 
 
