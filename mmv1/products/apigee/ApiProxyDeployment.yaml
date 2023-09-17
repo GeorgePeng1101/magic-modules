@@ -121,7 +121,6 @@ parameters:
     description: |
       Google Cloud IAM service account.              
     url_param_only: true
-properties:
 
 
 
