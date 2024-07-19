@@ -1,0 +1,77 @@
+# Copyright 2023 Google Inc.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+--- !ruby/object:Api::Resource
+name: 'OrganizationKeyvaluemaps'
+description: |
+  Collection of key/value string pairs.
+references: !ruby/object:Api::Resource::ReferenceLinks
+  guides:
+    'Using key value maps': 'https://cloud.google.com/apigee/docs/api-platform/cache/key-value-maps'
+  api: 'https://cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.keyvaluemaps/create'
+
+base_url: '{{org_id}}/keyvaluemaps'
+create_url: '{{org_id}}/keyvaluemaps'
+delete_url: '{{org_id}}/keyvaluemaps/{{name}}'
+self_link: '{{org_id}}/keyvaluemaps/{{name}}/entries'
+import_format: ['{{org_id}}/keyvaluemaps/{{name}}', '{{org_id}}/{{name}}']
+skip_sweeper: true
+examples:
+  - !ruby/object:Provider::Terraform::Examples
+    name: 'apigee_organization_keyvaluemaps_basic'
+    primary_resource_id: 'apigee_organization_keyvaluemaps'
+    test_env_vars:
+      org_id: :ORG_ID
+      billing_account: :BILLING_ACCT
+    skip_test: true
+  - !ruby/object:Provider::Terraform::Examples
+    name: 'apigee_organization_keyvaluemaps_test'
+    primary_resource_id: 'apigee_organization_keyvaluemaps'
+    test_env_vars:
+      org_id: :ORG_ID
+      billing_account: :BILLING_ACCT
+    skip_docs: true
+  - !ruby/object:Provider::Terraform::Examples
+    name: 'apigee_organization_keyvaluemaps_beta_test'
+    primary_resource_id: 'apigee_organization_keyvaluemaps'
+    test_env_vars:
+      org_id: :ORG_ID
+      billing_account: :BILLING_ACCT
+    skip_docs: true
+    min_version: beta
+immutable: true
+timeouts: !ruby/object:Api::Timeouts
+  insert_minutes: 1
+  delete_minutes: 1
+autogen_async: true
+custom_code: !ruby/object:Provider::Terraform::CustomCode
+  custom_import: templates/terraform/custom_import/apigee_organization_keyvaluemaps.go.erb
+  custom_create: 'templates/terraform/custom_create/apigee_organization_keyvaluemaps.go'
+  decoder: templates/terraform/decoders/apigee_organization_keyvaluemaps.go.erb
+parameters:
+  - !ruby/object:Api::Type::String
+    name: 'orgId'
+    description: |
+      The Apigee organization associated with the Apigee instance,
+      in the format `organizations/{{org_name}}`.
+    required: true
+    immutable: true
+    url_param_only: true
+properties:
+  - !ruby/object:Api::Type::String
+    name: 'name'
+    description: |
+      Required. ID of the key value map.
+    required: true
+    immutable: true
+    
